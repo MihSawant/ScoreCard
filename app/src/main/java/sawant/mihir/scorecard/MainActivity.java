@@ -72,9 +72,13 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(this, resultData , Toast.LENGTH_SHORT).show();
 
+                Bundle appBundle = new Bundle();
+                String[] values = {name, resultData};
+                appBundle.putStringArray("values", values);
+
                 Intent scoreSendIntent = new Intent(this, DisplayCard.class);
-                scoreSendIntent.putExtra("studentName", name);
-                scoreSendIntent.putExtra("studentScore", resultData);
+//                scoreSendIntent.putExtra("studentName", name);
+//                scoreSendIntent.putExtra("studentScore", resultData);
                 if(scoreSendIntent.resolveActivity(getPackageManager()) != null){
                     startActivity(scoreSendIntent);
                 }
