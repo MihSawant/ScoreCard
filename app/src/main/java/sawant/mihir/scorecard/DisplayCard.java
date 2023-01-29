@@ -1,6 +1,5 @@
 package sawant.mihir.scorecard;
 
-import static java.util.ResourceBundle.getBundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.ResourceBundle;
 
 public class DisplayCard extends AppCompatActivity {
 
@@ -23,11 +21,10 @@ public class DisplayCard extends AppCompatActivity {
         name = findViewById(R.id.displayName);
         score = findViewById(R.id.displayScore);
 
-        Intent scoreSendIntent = getIntent();
-        ResourceBundle appBundle = getBundle("values");
+//        Intent scoreSendIntent = getIntent();
+        Bundle bundle = getIntent().getExtras();
+        name.setText(bundle.getString("name"));
+        score.setText(bundle.getString("score"));
 
-        // resource bundle used
-        name.setText((CharSequence) scoreSendIntent.getExtras().get("studentName"));
-        score.setText((CharSequence) scoreSendIntent.getExtras().get("studentScore"));
     }
 }
